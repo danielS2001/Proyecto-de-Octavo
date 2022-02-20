@@ -9,12 +9,15 @@ const About = () => {
                     <div className="col-md-6">
                         <h1 className="text-primary fw-bold mb-4">Acerca de nosotros</h1>
                         <p className="lead mb-4">
-                            Somos una microempresa dedicada a la reparación de celulares y a la venta de accesorios.
+                            Somos una microempresa que lleva años en el mercado/industria de la 
+                            reparacion celular, esta a tenido con el tiempo varios establecimientos
+                            para poderse expandir y asi llegar a mas personas.
                         </p>
                         <NavLink to="/contact" className="btn btn-outline-primary px-3">Poner cita</NavLink>
+                        <br />
                     </div>
                     <div className="col-md-6 d-flex justify-content-center">
-                        <img src="/assets/images/about.png" alt="About Us" height="400px" width="400px" />
+                        <img src="/assets/images/local.jfif" alt="About Us" class="img-fluid rounded mx-auto d-block " height="400px" width="450px" />
                     </div>
                 </div>
             </div>

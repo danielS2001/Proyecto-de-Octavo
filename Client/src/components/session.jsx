@@ -22,7 +22,7 @@ const Session = () => {
                                     <input type="text" onChange={(e)=> {setUsername(e.target.value);}} className="form-control" id="exampleInput2" />
                             </div>
                             <div className="mb-3">
-                                    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
+                                    <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                                     <input type="password" onChange={(e)=> {setPassword(e.target.value);}} className="form-control" id="exampleInputPassword2"/>
                             </div>
                             {/* <div className="mb-3 form-check">
