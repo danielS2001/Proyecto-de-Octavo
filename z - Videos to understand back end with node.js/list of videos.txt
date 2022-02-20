@@ -1,0 +1,8 @@
+https://www.youtube.com/watch?v=W8jySpfRUDY Video donde se crea un servidor en el puerto 3001 para conectar a una base de datos.
+https://www.youtube.com/watch?v=W-sZo6Gtx_E Video donde se crea un sistema de inicio de sesión con mysql y node.js (Minuto 9:47).
+
+note:
+npm install express
+npm install express mysql
+yarn add axios
+
