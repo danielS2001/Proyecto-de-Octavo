@@ -8,17 +8,16 @@ const Registration = () => {
     const [usernameReg, setUsernameReg] = useState("");
     const [passwordReg, setPasswordReg] = useState("");
 
+    const [signupStatus, setsignupStatus] = useState("");
+
     const register = () => {
         Axios.post('http://localhost:3001/register', {
             username: usernameReg, 
             password: passwordReg,
         }).then((response) => {
             console.log(response);
+            setsignupStatus('Se ha creado el usuario de manera exitosa');
         });
-
-        // const feedback = document.getElementById('LoginSuccess');
-        // feedback.value = 'La creación de usuario ha sido exitosa';
-
         
     }
 
@@ -33,8 +32,8 @@ const Registration = () => {
                                     <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                                     <input type="password" onChange={(e)=> {setPasswordReg(e.target.value);}} className="form-control" id="exampleInputPassword1" />
                                 </div>
+                                <center><h4>{ signupStatus }</h4></center>
                                 <button onClick={register} type="submit" className="btn btn-outline-primary w-100 mt-5">Registrar</button>
-                                {/* <p id="LoginSuccess"></p> */}
         </>
     )
 
