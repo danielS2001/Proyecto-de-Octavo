@@ -34,6 +34,7 @@ const Header = () => {
                             
                         </ul>
                     <NavLink className="navbar-brand mx-auto fw-bolder col-2"  to="/">Hospital del celular</NavLink>
+                    <br/>
                     <Login/>
                     <Signup/>
                     <CartBtn/>
