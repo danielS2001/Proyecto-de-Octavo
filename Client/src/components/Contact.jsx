@@ -6,7 +6,7 @@ const Contact = () => {
             <div className="container mb-5">
                 <div className="row">
                     <div className="col-12 text-center py-4 my-4">
-                        <h1>Agendar cita para enviar a reparación un dispositivo móvil</h1>
+                        <h1>Agendar cita</h1>
                         <hr />
                     </div>
                 </div>
@@ -22,7 +22,7 @@ const Contact = () => {
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Número de teléfono.</label>
-                                <input type="phone" class="form-control" id="exampleForm"/>
+                                <input type="text" maxLength="10" class="form-control" id="exampleForm"/>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Dirección de correo electrónico.</label>
@@ -34,7 +34,7 @@ const Contact = () => {
                             </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Descripción del fallo.</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="El equipo tiene la pantalla quebrada."></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-outline-primary">Agendar</button>
                         </form>
