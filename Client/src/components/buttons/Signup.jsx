@@ -9,7 +9,7 @@ const Signup = () => {
             {/* <!-- Button trigger modal --> */}
             {/* <button type="button" className="btn btn-outline-primary ms-2" data-bs-toggle="modal" data-bs-target="#signupModal"> */}
             <NavLink to="/registration" className="btn btn-outline-primary ms-2"> 
-            <span className="fa fa-user-plus me-1"></span> Registrar usuario
+            <span className="fa fa-user-plus me-1"></span> Regístrate
             </NavLink>
             {/* </button> */}
 

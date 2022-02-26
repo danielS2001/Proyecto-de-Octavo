@@ -20,6 +20,25 @@ const About = () => {
                         <img src="/assets/images/local.jfif" alt="About Us" class="img-fluid rounded mx-auto d-block " height="400px" width="450px" />
                     </div>
                 </div>
+                
+            <h4 className=" text-primary fw-bold mb-4 ">Horarios de atención</h4>
+            <ul>
+                <li>Lunes - sabado
+                    <ul>
+                        <li>
+                            <p>10:00 a.m - 6:30 p.m</p>
+                        </li>
+                    </ul>
+                </li>
+                <br />
+                <li>Domingo
+                    <ul>
+                        <li>
+                            10:00 a.m - 3:00 p.m
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             </div>
         </div>
     )
