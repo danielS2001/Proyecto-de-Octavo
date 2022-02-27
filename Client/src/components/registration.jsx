@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
-
-
+import { useEffect } from 'react';
 
 const Registration = () => {
 
@@ -9,6 +8,8 @@ const Registration = () => {
     const [passwordReg, setPasswordReg] = useState("");
 
     const [signupStatus, setsignupStatus] = useState("");
+
+    Axios.defaults.withCredentials = true;
 
     const register = () => {
         Axios.post('http://localhost:3001/register', {
@@ -20,6 +21,10 @@ const Registration = () => {
         });
         
     }
+
+    // useEffect(() => {
+    //     Axios.get("http://localhost:3001");
+    // }, [])
 
     return (
         <>
@@ -44,7 +49,10 @@ const Registration = () => {
                         <input type="password" onChange={(e)=> {setPasswordReg(e.target.value);}} className="form-control" id="exampleInputPassword1" />
                     </div> 
                 </div>
+                <br />
+                <h5>{ signupStatus }</h5>
                 <button onClick={register} type="submit" className="btn btn-outline-primary mt-5">Registrar</button>
+                
             </center>
                 
         </div>

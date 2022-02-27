@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
+import { useEffect } from 'react';
 
 const Session = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const [loginStatus, setLoginStatus] = useState("");
+
+    Axios.defaults.withCredentials = true;
 
     const login = () => {
         Axios.post('http://localhost:3001/login', {
@@ -20,7 +23,15 @@ const Session = () => {
                 setLoginStatus(response.data[0].user);
             }
         });
-    }
+    };
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/login").then((response) => {
+            if (response.data.loggedIn == true) {
+                setLoginStatus(response.data.user[0].user);
+            }
+        });
+    }, []);
 
     return (
         <>
