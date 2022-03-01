@@ -89,29 +89,40 @@ app.post('/login', (req, res) => {
     );
 })
 
-// app.get('/select', (req, res) => {
-//     db.query("Select * from usuarios", (err, result) => {
-//         if (err) {
-//             console.log(err);
-//         }
-//             res.send(result);
-//     });
-// });
+app.get('/select', (req, res) => {
+    db.query("Select * from citas", (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+            res.send(result);
+    });
+});
 
-// app.post('/insert', (req, res) => {
+app.post('/appointment', (req, res) => {
 
-//     const user = "daniel";
-//     const password = "123";
+    const name = req.body.name;
+    const phone = req.body.phone;
+    const email = req.body.email;
+    const device = req.body.device;
+    const description = req.body.description;
+    const time = req.body.time;
+    const date = req.body.date;
 
-//     db.query('insert into usuarios(user, password) values (?, ?)',
-//     [user, password],
-//     (err, result) => {
-//         if (err) {
-//             console.log(err);
-//         }
-//             res.send(result);
-//     })
-// })
+    db.query("Insert into citas (nombreCompleto, numeroTelefono, correo, dispositivo, descripcion, fecha, hora) values (?,?,?,?,?,?,?)",
+    [name, phone, email, device, description, time, date],
+    (err, result) => {
+        if(err){
+            res.send({ err: err });
+        }
+        
+        if (result) {
+            res.send(result);
+        } else {
+            res.send({ message: "Hubo un error al crear una cita" })
+        }
+        
+    });
+});
 
 app.listen(3001, () => {
     console.log("server running");
