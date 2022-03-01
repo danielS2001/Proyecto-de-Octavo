@@ -10,7 +10,7 @@ const About = () => {
                         <h1 className="text-primary fw-bold mb-4">Acerca de nosotros</h1>
                         <p className="lead mb-4">
                             Somos una microempresa que lleva años en el mercado/industria de la 
-                            reparacion celular, esta a tenido con el tiempo varios establecimientos
+                            reparación celular, esta ha tenido con el tiempo varios establecimientos
                             para poderse expandir y asi llegar a mas personas.
                         </p>
                         <NavLink to="/contact" className="btn btn-outline-primary px-3">Poner cita</NavLink>
@@ -23,7 +23,7 @@ const About = () => {
                 
             <h4 className=" text-primary fw-bold mb-4 ">Horarios de atención</h4>
             <ul>
-                <li>Lunes - sabado
+                <li>Lunes - sábado
                     <ul>
                         <li>
                             <p>10:00 a.m - 6:30 p.m</p>
