@@ -72,11 +72,11 @@ const Contact = () => {
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Hora.</label>
-                                <input type="text" onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
+                                <input type="time" onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Fecha (Año-Mes-Dia).</label>
-                                <input type="text" onChange={(e)=> {setDateReg(e.target.value);}} class="form-control" id="exampleFormControlInput3" placeholder="Ej. 2022-03-15/"/>
+                                <label for="" class="form-label">Fecha.</label>
+                                <input type="date" onChange={(e)=> {setDateReg(e.target.value);}} class="form-control" id="exampleFormControlInput3" placeholder="Ej. 2022-03-15/"/>
                             </div>
                                 <h5>{ appointmentStatus }</h5>
                                 <button onClick={appointment} type="submit" class="btn btn-outline-primary">Agendar</button> 
