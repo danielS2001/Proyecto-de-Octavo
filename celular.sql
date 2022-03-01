@@ -19,8 +19,8 @@ create table `citas` (
     `correo` varchar(50),
     `dispositivo` varchar(30),
     `descripcion` varchar (800),
-    `fecha` date,
-    `hora` varchar(6),
+    `fecha` varchar(11),
+    `hora` varchar(10),
     primary key (`id_cita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
