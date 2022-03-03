@@ -27,9 +27,9 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/contact">Poner cita</NavLink>
                             </li>
-                            {/* <li classname="nav-item">
-                                <NavLink className="nav-link" to="/">Cerrar sesión</NavLink>
-                            </li> */}
+                            <li classname="nav-item">
+                                <NavLink className="nav-link" to="/citas">Ver las citas</NavLink>
+                            </li>
                             
                             
                         </ul>

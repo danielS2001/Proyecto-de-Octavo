@@ -15,6 +15,10 @@ const Contact = () => {
 
     Axios.defaults.withCredentials = true;
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+    };
+
     const appointment = () => {
         Axios.post('http://localhost:3001/appointment', {
             name: nameReg, 
@@ -30,11 +34,6 @@ const Contact = () => {
         });
     }
 
-    // const Dates = () => {
-    //     Axios.get("http://localhost:3001/appointment").then((response) => {
-    //     });
-    // }
-
     return (
         <div>
             <div className="container mb-5">
@@ -49,39 +48,39 @@ const Contact = () => {
                         <img src="/assets/images/citas.png" alt="Contact Us" height="300px" width="300px" />
                     </div>
                     <div className="col-md-6">
-                        {/* <form > */}
+                        <form onSubmit={onSubmit}>
                             <div class="mb-3">
                                 <label for="" class="form-label">Nombre completo.</label>
-                                <input type="text" onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" placeholder="Juan Perez "/>
+                                <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" placeholder="Ej. Juan Perez "/>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Número de teléfono.</label>
-                                <input type="text" onChange={(e)=> {setPhoneReg(e.target.value);}} maxLength="10" class="form-control" id="exampleForm"/>
+                                <input type="text" required onChange={(e)=> {setPhoneReg(e.target.value);}} maxLength="10" class="form-control" id="exampleForm" placeholder="Ej. 6691010203"/>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Dirección de correo electrónico.</label>
-                                <input type="email" onChange={(e)=> {setEmailReg(e.target.value);}} class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
+                                <input type="email" required onChange={(e)=> {setEmailReg(e.target.value);}} class="form-control" id="exampleFormControlInput1" placeholder="Ej. nombre@hotmail.com"/>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Dispositivo.</label>
-                                <input type="text" onChange={(e)=> {setDeviceReg(e.target.value);}} class="form-control" id="exampleFormControlInput1" placeholder="Ej. Iphone 12, Motorola G7"/>
+                                <input type="text" required onChange={(e)=> {setDeviceReg(e.target.value);}} class="form-control" id="exampleFormControlInput1" placeholder="Ej. Iphone 12, Motorola G7"/>
                             </div>
                             <div class="mb-3">
                                     <label for="" class="form-label">Descripción del fallo.</label>
-                                    <textarea onChange={(e)=> {setDescriptionReg(e.target.value);}} class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="El equipo tiene la pantalla quebrada."></textarea>
+                                    <textarea required onChange={(e)=> {setDescriptionReg(e.target.value);}} class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="El equipo tiene la pantalla quebrada."></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Hora.</label>
-                                <input type="time" onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
+                                <input type="time" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Fecha.</label>
-                                <input type="date" onChange={(e)=> {setDateReg(e.target.value);}} class="form-control" id="exampleFormControlInput3" placeholder="Ej. 2022-03-15/"/>
+                                <input type="date" required onChange={(e)=> {setDateReg(e.target.value);}} class="form-control" id="exampleFormControlInput3" placeholder="Ej. 2022-03-15/"/>
                             </div>
                                 <h5>{ appointmentStatus }</h5>
-                                <button onClick={appointment} type="submit" class="btn btn-outline-primary">Agendar</button> 
-                                {/* <br /><br /><button onClick={Dates} class="btn btn-outline-primary">Ver citas</button> */}
-                        {/* </form> */}
+                                <button onClick={appointment} type="submit" class="btn btn-outline-primary">Agendar cita</button> <br /><br />
+                                <button type="reset" class="btn btn-outline-primary" defaultValue="Limpiar">Limpiar datos</button><br /><br />
+                        </form>
                     </div>
                     </div>
                 </div>

@@ -10,7 +10,8 @@ import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import Session from './components/session';
-import Registration from './components/registration'
+import Registration from './components/registration';
+import Citas from './components/Citas';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/session" component={Session} />
         <Route exact path="/registration" component={Registration} />
+        <Route exact path="/citas" component={Citas} />
         <Redirect to="/" />
       </Switch>
       <Footer/>
