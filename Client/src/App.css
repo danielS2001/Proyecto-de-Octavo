@@ -42,3 +42,12 @@
   margin-top: 35px;
 }
 
+table td {
+  text-align: center;
+  width: 3%;
+}
+table th {
+  text-align: center;
+  width: 3%;
+}
+

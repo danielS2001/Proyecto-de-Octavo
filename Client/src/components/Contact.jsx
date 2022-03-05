@@ -22,7 +22,11 @@ const Contact = () => {
     };
 
     const appointment = () => {
-        {phoneReg == "" ? setAppointmentStatus('Faltan datos para crear una cita') : 
+        {phoneReg == "" ? setAppointmentStatus(
+            <div class="alert alert-danger" role="alert">
+                Por favor, ingrese los datos correspondientes
+            </div>
+        ) : 
         Axios.post('http://localhost:3001/appointment', {
             name: nameReg, 
             phone: phoneReg,
@@ -33,7 +37,10 @@ const Contact = () => {
             date: dateReg
         }).then((response) => {
             console.log(response);
-            setAppointmentStatus('Se ha creado una cita de manera exitosa');
+            setAppointmentStatus(
+            <div class="alert alert-success" role="alert">
+                Cita agendada con exito!
+            </div>);
         });
         }
     }
@@ -66,7 +73,7 @@ const Contact = () => {
                                 <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" defaultValue={Name}/>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Número de teléfono (*).</label>
+                                <label for="" class="form-label">Número de teléfono.</label>
                                 <input type="text" required onChange={(e)=> {setPhoneReg(e.target.value);}} maxLength="10" class="form-control" id="exampleForm" placeholder="Ej. 6691010203"/>
                             </div>
                             <div class="mb-3">
@@ -82,17 +89,16 @@ const Contact = () => {
                                     <textarea required onChange={(e)=> {setDescriptionReg(e.target.value);}} class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="El equipo tiene la pantalla quebrada."></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Hora.</label>
-                                <input type="time" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
-                            </div>
-                            <div class="mb-3">
                                 <label for="" class="form-label">Fecha.</label>
                                 <input type="date" required onChange={(e)=> {setDateReg(e.target.value);}} class="form-control" id="exampleFormControlInput3" placeholder="Ej. 2022-03-15/"/>
                             </div>
-                                <h5>{ appointmentStatus }</h5>
-                                <button onClick={appointment} type="submit" class="btn btn-outline-primary">Agendar cita</button> <br /><br />
-                                <button type="reset" class="btn btn-outline-primary" defaultValue="Limpiar">Limpiar datos</button><br /><br />
-                                <h5>Nota: Los campos con (*) deben ser rellenados.</h5>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Hora.</label>
+                                <input type="time" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
+                            </div>
+                                <h5><br/>{ appointmentStatus }</h5>
+                                <button onClick={appointment} type="submit" class="btn btn-outline-primary col-3">Agendar cita</button>
+                                <button type="reset"  class="btn btn-outline-primary col-3 offset-md-1" defaultValue="Limpiar">Limpiar datos</button><br /><br />
                         </form>
                     </div>
                     </div>
@@ -100,5 +106,4 @@ const Contact = () => {
             </div>
             )
 }
-
-            export default Contact
+export default Contact

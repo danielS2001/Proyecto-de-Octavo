@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useEffect } from 'react'; 
 
+
 export default function Citas() {
 
     const [listaCitas, setListaCitas] = useState([]);
@@ -25,45 +26,66 @@ export default function Citas() {
 
   return (
     <div>
-        <center><h1>Citas</h1></center><br />
+        <div className="col-12 text-center py-4 my-4">
+            <h1>Citas agendadas</h1>
+            <hr />
+            <div class="container-fluid mb-5">
+                <div class="alert alert-warning" role="alert">
+                <strong>Nota:</strong> Si al oprimir el botón no aparece información, entonces aún no hay registros.
+                </div>
+            </div>
+        </div>
+        
         {role == 'admin' ? (
         <div>
-            <center><h3>Si al oprimir el botón no aparece nada, entonces no hay citas agendadas aún.</h3><br />
-            <button onClick={VerCitas} className="btn btn-outline-primary">Ver las citas agendadas</button>
+            <center>
+            <button onClick={VerCitas} className="btn btn-outline-primary">Consultar</button><br /><br />
+            <br />
             </center>
         </div>)
-        : <center><h2>Este módulo no es accesible para usuarios no administradores</h2></center>}
-        
+        : <center>
+            <div class="alert alert-danger" role="alert">
+             <h2>Usted no tiene acceso a este módulo, si se trata de un error por favor ponerse en contacto</h2>
+            </div>
+            </center>}
         <br /><br />
-                <div>
-                {listaCitas.map((val, key) => {
-                    return (
-                        <div>
-                        <table>
-                            <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Numero teléfonico</th>
-                            <th>Correo</th>
-                            <th>Dispositivo</th>
-                            <th>Descripción</th>
-                            <th>Fecha</th>
-                            <th>Hora</th>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                                <tr class="table-info">
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Numero telefonico</th>
+                                    <th>Correo</th>
+                                    <th>Dispositivo</th>
+                                    <th>Descripción</th>
+                                    <th>Hora</th>
+                                    <th>Fecha</th>
                             </tr>
-                            <tr>
-                                <td>{val.id_cita}</td>
-                                <td>{val.nombreCompleto}</td>
-                                <td>{val.correo}</td>
-                                <td>{val.dispositivo}</td>
-                                <td>{val.descripcion}</td>
-                                <td>{val.fecha}</td>
-                                <td>{val.hora}</td>
-                            </tr>
-                        </table>
-                        </div>
-                    );
-                })}
+                        </thead>
+                    </table>
                 </div>
+                    {listaCitas.map((val, key) => {
+                        return (
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                <tbody>
+                                        <tr>   
+                                            <td>{val.id_cita}</td>
+                                            <td>{val.nombreCompleto}</td>
+                                            <td>{val.numeroTelefono}</td>
+                                            <td>{val.correo}</td>
+                                            <td>{val.dispositivo}</td>
+                                            <td>{val.descripcion}</td>
+                                            <td>{val.fecha}</td>
+                                            <td>{val.hora}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            
+                        );
+                    })}
     </div>
   )
 }
