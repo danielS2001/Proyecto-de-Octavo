@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import CartBtn from './buttons/CartBtn'
 import Login from './buttons/Login'
 import Signup from './buttons/Signup'
+import { useState } from 'react'
+import Axios from 'axios'
 
 const Header = () => {
+
+    const [rol, setRol] = useState("");
+
+    Axios.defaults.withCredentials = true;
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/login").then((response) => {
+            if (response.data.loggedIn == true) {
+                setRol(response.data.user[0].user);
+            }
+        });
+    }, []);
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light ">
@@ -24,12 +39,19 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/about">Acerca de</NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/contact">Poner cita</NavLink>
+
+                            {!rol == '' && (
+                                <li className="nav-item">
+                                <NavLink className="nav-link" to="/contact">Citas</NavLink>
                             </li>
-                            <li classname="nav-item">
-                                <NavLink className="nav-link" to="/citas">Ver las citas</NavLink>
-                            </li>
+                            )}
+                            
+                            {rol == 'admin' && (
+                                <li classname="nav-item">
+                                <NavLink className="nav-link" to="/citas">Consultar</NavLink>
+                                </li>
+                            )}
+                            
                             
                             
                         </ul>

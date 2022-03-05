@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Axios from 'axios';
+import { useEffect } from 'react';
 
 const Contact = () => {
 
@@ -12,6 +13,7 @@ const Contact = () => {
     const [dateReg, setDateReg] = useState("");
 
     const [appointmentStatus, setAppointmentStatus] = useState("");
+    const [Name, setName] = useState("");
 
     Axios.defaults.withCredentials = true;
 
@@ -20,6 +22,7 @@ const Contact = () => {
     };
 
     const appointment = () => {
+        {phoneReg == "" ? setAppointmentStatus('Faltan datos para crear una cita') : 
         Axios.post('http://localhost:3001/appointment', {
             name: nameReg, 
             phone: phoneReg,
@@ -32,7 +35,16 @@ const Contact = () => {
             console.log(response);
             setAppointmentStatus('Se ha creado una cita de manera exitosa');
         });
+        }
     }
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/login").then((response) => {
+            if (response.data.loggedIn == true) {
+                setName(response.data.user[0].user);
+            }
+        });
+    }, []);
 
     return (
         <div>
@@ -51,10 +63,10 @@ const Contact = () => {
                         <form onSubmit={onSubmit}>
                             <div class="mb-3">
                                 <label for="" class="form-label">Nombre completo.</label>
-                                <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" placeholder="Ej. Juan Perez "/>
+                                <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" defaultValue={Name}/>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Número de teléfono.</label>
+                                <label for="" class="form-label">Número de teléfono (*).</label>
                                 <input type="text" required onChange={(e)=> {setPhoneReg(e.target.value);}} maxLength="10" class="form-control" id="exampleForm" placeholder="Ej. 6691010203"/>
                             </div>
                             <div class="mb-3">
@@ -80,6 +92,7 @@ const Contact = () => {
                                 <h5>{ appointmentStatus }</h5>
                                 <button onClick={appointment} type="submit" class="btn btn-outline-primary">Agendar cita</button> <br /><br />
                                 <button type="reset" class="btn btn-outline-primary" defaultValue="Limpiar">Limpiar datos</button><br /><br />
+                                <h5>Nota: Los campos con (*) deben ser rellenados.</h5>
                         </form>
                     </div>
                     </div>

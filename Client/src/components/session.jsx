@@ -15,7 +15,6 @@ const Session = () => {
             username: username, 
             password: password,
         }).then((response) => {
-
             if (response.data.message) {
                 setLoginStatus(response.data.message);
             } else {
@@ -23,6 +22,10 @@ const Session = () => {
                 setLoginStatus(response.data[0].user);
             }
         });
+
+        setTimeout(function() {
+            window.location.reload();
+        }, 1000)
     };
 
     useEffect(() => {
@@ -46,22 +49,22 @@ const Session = () => {
                 <div className="mb-3">
                 <label htmlFor="exampleInput" className="form-label">Nombre de usuario </label>
                     <div class="form-group col-md-4">
-                        <input type="text" onChange={(e)=> {setUsername(e.target.value);}} className="form-control" id="exampleInput2" />
+                        <input type="text" required onChange={(e)=> {setUsername(e.target.value);}} className="form-control" id="exampleInput2" />
                     </div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                     <div class="form-group col-md-4">
-                        <input type="password" onChange={(e)=> {setPassword(e.target.value);}} className="form-control" id="exampleInputPassword2"/>
+                        <input type="password" required onChange={(e)=> {setPassword(e.target.value);}} className="form-control" id="exampleInputPassword2"/>
                     </div>
                 </div>
             
                 <br />
-                <h5>Bienvenido(a): {loginStatus}</h5>
-            <button type="submit" onClick={login}  className="btn btn-outline-primary mt-5">Iniciar sesión</button> 
+                <h5>Bienvenido(a) {loginStatus}</h5>
+            <button type="submit" onClick={(login)}  className="btn btn-outline-primary mt-5">Iniciar sesión</button> 
+            {/* <button onClick={logout} className="btn btn-outline-primary mt-5">Cerrar sesión</button> */}
             </center>
-        </div>
-                    
+        </div>       
         </>
     )
 }

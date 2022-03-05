@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Axios from 'axios';
-import { useEffect } from 'react';
 
 const Registration = () => {
 
@@ -12,6 +11,7 @@ const Registration = () => {
     Axios.defaults.withCredentials = true;
 
     const register = () => {
+        {usernameReg == "" ? setsignupStatus('Se debe ingresar al menos un nombre de usuario') :
         Axios.post('http://localhost:3001/register', {
             username: usernameReg, 
             password: passwordReg,
@@ -19,12 +19,11 @@ const Registration = () => {
             console.log(response);
             setsignupStatus('Se ha creado el usuario de manera exitosa');
         });
-        
+        }
+        setTimeout(function() {
+            window.location.reload();
+        }, 1500)
     }
-
-    // useEffect(() => {
-    //     Axios.get("http://localhost:3001");
-    // }, [])
 
     return (
         <>
@@ -39,14 +38,14 @@ const Registration = () => {
                 <div className="mb-3">
                 <label htmlFor="exampleInput" className="form-label">Nombre de usuario</label>
                     <div class="form-group col-md-4">
-                        <input type="text" onChange={(e)=> {setUsernameReg(e.target.value);}} className="form-control" id="exampleInput" />
+                        <input type="text" required onChange={(e)=> {setUsernameReg(e.target.value);}} className="form-control" id="exampleInput" />
                     </div>
                 </div>
 
                 <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Contraseña</label>
                     <div class="form-group col-md-4">
-                        <input type="password" onChange={(e)=> {setPasswordReg(e.target.value);}} className="form-control" id="exampleInputPassword1" />
+                        <input type="password" required onChange={(e)=> {setPasswordReg(e.target.value);}} className="form-control" id="exampleInputPassword1" />
                     </div> 
                 </div>
                 <br />

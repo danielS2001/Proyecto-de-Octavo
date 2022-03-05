@@ -5,8 +5,8 @@ DROP TABLE IF EXISTS `usuarios`;
 /*Creando la tabla de usuario*/
 create table `usuarios` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-    `user` varchar (250),
-    `password` varchar(100),
+    `user` varchar (250) NOT NULL,
+    `password` varchar(100) NOT NULL,
     primary key (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -14,13 +14,13 @@ DROP TABLE IF EXISTS `citas`;
 /*Creando la tabla de citas*/
 create table `citas` (
 	`id_cita` INT NOT NULL AUTO_INCREMENT,
-    `nombreCompleto` varchar (250),
-    `numeroTelefono` varchar(11),
-    `correo` varchar(50),
-    `dispositivo` varchar(30),
-    `descripcion` varchar (800),
-    `fecha` varchar(11),
-    `hora` varchar(10),
+    `nombreCompleto` varchar (250) NOT NULL,
+    `numeroTelefono` varchar(11) NOT NULL,
+    `correo` varchar(50) NOT NULL,
+    `dispositivo` varchar(30) NOT NULL,
+    `descripcion` varchar (800) NOT NULL,
+    `fecha` varchar(11) NOT NULL,
+    `hora` varchar(10) NOT NULL,
     primary key (`id_cita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -41,4 +41,6 @@ create table `envios` (
 
 /*Agregando datos a la tabla de usuarios*/
 insert into `usuarios` (id, user, password) values (3, 'admin', '456');
+select * from citas;
+select * from envios;
 select * from usuarios;
