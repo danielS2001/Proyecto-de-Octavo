@@ -43,6 +43,9 @@ const Contact = () => {
             </div>);
         });
         }
+        setTimeout (function() {
+            window.location.reload();
+        },1650)
     }
 
     useEffect(() => {
@@ -70,7 +73,7 @@ const Contact = () => {
                         <form onSubmit={onSubmit}>
                             <div class="mb-3">
                                 <label for="" class="form-label">Nombre completo.</label>
-                                <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" defaultValue={Name}/>
+                                <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" placeholder={Name}/>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Número de teléfono.</label>
