@@ -39,8 +39,9 @@ create table `envios` (
     primary key (`id_envio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Agregando datos a la tabla de usuarios*/
-insert into `usuarios` (id, user, password) values (3, 'admin', '456');
+/*Convierte "user" en variable única para evitar registros duplicados en la tabla de usuarios*/
+alter table usuarios add unique index(user);
+
 select * from citas;
 select * from envios;
 select * from usuarios;

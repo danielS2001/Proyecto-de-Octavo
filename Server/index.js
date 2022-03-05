@@ -42,7 +42,7 @@ app.post('/register', (req, res,) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    db.query("Insert into usuarios (user, password) values (?,?)",
+    db.query("Insert ignore into usuarios (user, password) values (?,?)",
     [username, password],
     (err, result) => {
         if(err){
@@ -122,6 +122,10 @@ app.post('/appointment', (req, res) => {
         }
         
     });
+});
+
+app.post('/logout', (req, res) => {
+    req.session.destroy()
 });
 
 app.listen(3001, () => {

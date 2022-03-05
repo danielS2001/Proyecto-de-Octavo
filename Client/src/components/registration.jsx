@@ -17,12 +17,17 @@ const Registration = () => {
             password: passwordReg,
         }).then((response) => {
             console.log(response);
-            setsignupStatus('Se ha creado el usuario de manera exitosa');
+            if (response.data.affectedRows > 0) {
+                setsignupStatus('Se ha creado el usuario de manera exitosa');
+            } else {
+                setsignupStatus('No se podido crear el usuario');
+            }
+            
         });
         }
         setTimeout(function() {
             window.location.reload();
-        }, 1500)
+        }, 1000)
     }
 
     return (

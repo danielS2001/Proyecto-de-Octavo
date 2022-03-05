@@ -9,8 +9,17 @@ import Axios from 'axios'
 const Header = () => {
 
     const [rol, setRol] = useState("");
+    const [registered, setRegistered] = useState("");
 
     Axios.defaults.withCredentials = true;
+
+    const logout = () => {
+        Axios.post('http://localhost:3001/logout' , {
+        }).then((response) => {
+            console.log(response);
+        })
+        window.location.reload();
+    }
 
     useEffect(() => {
         Axios.get("http://localhost:3001/login").then((response) => {
@@ -51,15 +60,29 @@ const Header = () => {
                                 <NavLink className="nav-link" to="/citas">Consultar</NavLink>
                                 </li>
                             )}
+
+                            <li className="nav-item">
+                                {rol == '' ? 
+                                <p 
+                                style={{"textAlign":"center", "fontFamily": "Georgia", "fontSize": "16px", "color":"blue", "textIndent": "22px", "paddingTop": "8px"}}>
+                                    Usuario sin registrar</p> :
+                                <p 
+                                style={{"textAlign":"center", "fontFamily": "Georgia", "fontSize": "16px", "color":"blue", "textIndent": "22px", "paddingTop": "8px"}}>
+                                    Usuario: {rol}
+                                </p>}
+                            </li>
                             
                             
                             
                         </ul>
                     <NavLink className="navbar-brand mx-auto fw-bolder col-2"  to="/">Hospital del celular</NavLink>
-                    <br/>
                     <Login/>
                     <Signup/>
                     <CartBtn/>
+                    
+                    {!rol == '' &&
+                    <button onClick={logout} className="btn btn-outline-primary ms-2"><span className="fa fa-sign-out me-1"></span>Cerrar sesión</button>
+                    }
                     </div>
                 </div>
             </nav>

@@ -39,7 +39,7 @@ export default function Citas() {
         {role == 'admin' ? (
         <div>
             <center>
-            <button onClick={VerCitas} className="btn btn-outline-primary">Consultar</button><br /><br /><br />
+            <button onClick={VerCitas} className="btn btn-outline-primary">Consultar</button><br /><br />
             <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -63,7 +63,6 @@ export default function Citas() {
              <h2>Usted no tiene acceso a este módulo, si se trata de un error por favor ponerse en contacto</h2>
             </div>
             </center>}
-                
                     {listaCitas.map((val, key) => {
                         return (
                             <div class="table-responsive">
