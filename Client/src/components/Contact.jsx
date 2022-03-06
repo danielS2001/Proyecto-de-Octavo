@@ -97,7 +97,7 @@ const Contact = () => {
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Hora.</label>
-                                <input type="time" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
+                                <input type="time" min="10:00" max="18:00" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
                             </div>
                                 <h5><br/>{ appointmentStatus }</h5>
                                 <button onClick={appointment} type="submit" class="btn btn-outline-primary col-3">Agendar cita</button>
