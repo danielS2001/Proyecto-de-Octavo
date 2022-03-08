@@ -15,6 +15,8 @@ const Contact = () => {
     const [appointmentStatus, setAppointmentStatus] = useState("");
     const [Name, setName] = useState("");
 
+    const TableValidation = (nameReg == "" || phoneReg == "" || emailReg == "" || deviceReg == "" || descriptionReg == "" || timeReg == "" || dateReg == ""); 
+
     Axios.defaults.withCredentials = true;
 
     const onSubmit = (e) => {
@@ -22,11 +24,11 @@ const Contact = () => {
     };
 
     const appointment = () => {
-        {phoneReg == "" ? setAppointmentStatus(
+        TableValidation ? setAppointmentStatus(
             <div class="alert alert-danger" role="alert">
                 Por favor, ingrese los datos correspondientes
             </div>
-        ) : 
+        ) : (
         Axios.post('http://localhost:3001/appointment', {
             name: nameReg, 
             phone: phoneReg,
@@ -41,11 +43,10 @@ const Contact = () => {
             <div class="alert alert-success" role="alert">
                 Cita agendada con exito!
             </div>);
-        });
-        }
+        }));
         setTimeout (function() {
             window.location.reload();
-        },1650)
+        },5000)
     }
 
     useEffect(() => {
@@ -100,7 +101,7 @@ const Contact = () => {
                                 <input type="time" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
                             </div>
                                 <h5><br/>{ appointmentStatus }</h5>
-                                <button onClick={appointment} type="submit" class="btn btn-outline-primary col-3">Agendar cita</button>
+                                <button onClick={ appointment } type="submit" class="btn btn-outline-primary col-3">Agendar cita</button>
                                 <button type="reset"  class="btn btn-outline-primary col-3 offset-md-1" defaultValue="Limpiar">Limpiar datos</button><br /><br />
                         </form>
                     </div>
