@@ -49,33 +49,28 @@ const Header = () => {
                                 <NavLink className="nav-link" to="/about">Acerca de</NavLink>
                             </li>
 
-                            {!rol == '' && (
-                                <li className="nav-item">
+                            <li className="nav-item">
                                 <NavLink className="nav-link" to="/contact">Citas</NavLink>
                             </li>
-                            )}
                             
                             {rol == 'admin' && (
                                 <li classname="nav-item">
                                 <NavLink className="nav-link" to="/citas">Consultar</NavLink>
                                 </li>
                             )}
-
                             <li className="nav-item">
                                 {rol == '' ? 
-                                <p 
-                                style={{"textAlign":"center", "fontFamily": "Georgia", "fontSize": "16px", "color":"blue", "textIndent": "22px", "paddingTop": "8px"}}>
-                                    Usuario sin registrar</p> :
-                                <p 
-                                style={{"textAlign":"center", "fontFamily": "Georgia", "fontSize": "16px", "color":"blue", "textIndent": "22px", "paddingTop": "8px"}}>
-                                    Usuario: {rol}
-                                </p>}
+                                <p></p> :
+                                <div class="container-sm" style={{"padding-top":"6px","textAlign":"center"}}>
+                                    <p class="p-1 bg-primary text-white rounded glyphicon-user"><span className="fa fa-user me-1"></span>Usuario: {rol}</p>
+                                </div>
+                                }
                             </li>
-                            
-                            
-                            
                         </ul>
-                    <NavLink className="navbar-brand mx-auto fw-bolder col-2"  to="/">Hospital del celular</NavLink>
+                    <NavLink className="navbar-brand mx-auto fw-bolder col-3"  to="/">
+                        <div class="container" style={{"padding-right":"50px","textAlign":"center"}}>
+                            Hospital del celular
+                        </div></NavLink>
                     <Login/>
                     <Signup/>
                     <CartBtn/>
