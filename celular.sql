@@ -35,9 +35,15 @@ create table `envios` (
     `estado` varchar (30),
     `ciudad` varchar(50),
     `CP` varchar(6),
-    `metodoPago` varchar(20),
+    `producto` varchar(30),
+    `precio` int,
     primary key (`id_envio`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Agregando registros a la tabla de envios*/
+insert into envios(nombre, apellido, correo, direccion, estado, ciudad, CP, producto, precio) 
+values ("Daniel", "Apodaca", "daniel@hotmail.com", "Calle Tauro", "Sinaloa", "Mazatlan", "12345", "Audifonos", 17.55);
+
 
 /*Convierte "user" en variable única para evitar registros duplicados en la tabla de usuarios*/
 alter table usuarios add unique index(user);

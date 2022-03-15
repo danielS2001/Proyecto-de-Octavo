@@ -26,7 +26,7 @@ const Contact = () => {
     const appointment = () => {
         TableValidation ? setAppointmentStatus(
             <div class="alert alert-danger" role="alert">
-                Por favor, ingrese los datos correspondientes
+                Por favor, ingrese los datos correspondientes.
             </div>
         ) : (
         Axios.post('http://localhost:3001/appointment', {

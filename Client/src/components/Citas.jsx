@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 export default function Citas() {
 
     const [listaCitas, setListaCitas] = useState([]);
+    const [listaEnvios, setListaEnvios] = useState([]);
     const [role, setRole] = useState("");
 
     Axios.defaults.withCredentials = true;
@@ -13,6 +14,12 @@ export default function Citas() {
     const VerCitas = () => {
         Axios.get('http://localhost:3001/select').then((response) => {
             setListaCitas(response.data);
+        });
+    };
+
+    const VerEnvios = () => {
+        Axios.get('http://localhost:3001/selectShipment').then((response) => {
+            setListaEnvios(response.data);
         });
     };
 
@@ -27,7 +34,7 @@ export default function Citas() {
   return (
     <div>
         <div className="col-12 text-center py-4 my-4">
-            <h1>Citas agendadas</h1>
+            <h1>Consulta de citas y envíos</h1>
             <hr />
             <div class="container-fluid mb-5">
                 <div class="alert alert-warning" role="alert">
@@ -39,7 +46,8 @@ export default function Citas() {
         {role == 'admin' ? (
         <div>
             <center>
-            <button onClick={VerCitas} className="btn btn-outline-primary">Consultar</button><br /><br />
+            <button onClick={VerCitas} className="btn btn-outline-primary">Consultar las citas</button><br /><br />
+
             <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -56,14 +64,8 @@ export default function Citas() {
                         </thead>
                     </table>
                 </div>
-            </center>
-        </div>)
-        : <center>
-            <div class="alert alert-danger" role="alert">
-             <h2>Usted no tiene acceso a este módulo, si se trata de un error por favor ponerse en contacto</h2>
-            </div>
-            </center>}
-                    {listaCitas.map((val, key) => {
+
+                {listaCitas.map((val, key) => {
                         return (
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover">
@@ -84,6 +86,60 @@ export default function Citas() {
                             
                         );
                     })}
+
+                {/* Aqui empieza la tabla de envios */} <br /><br />
+                <button onClick={VerEnvios} className="btn btn-outline-primary">Consultar los envios</button><br /><br />
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                                <tr class="table-info">
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Correo</th>
+                                    <th>Dirección</th>
+                                    <th>Estado</th>
+                                    <th>Ciudad</th>
+                                    <th>CP</th>
+                                    <th>Producto</th>
+                                    <th>Precio</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+                {listaEnvios.map((val, key) => {
+                        return (
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                <tbody>
+                                        <tr>   
+                                            <td>{val.id_envio}</td>
+                                            <td>{val.nombre}</td>
+                                            <td>{val.apellido}</td>
+                                            <td>{val.correo}</td>
+                                            <td>{val.direccion}</td>
+                                            <td>{val.estado}</td>
+                                            <td>{val.ciudad}</td>
+                                            <td>{val.CP}</td>
+                                            <td>{val.producto}</td>
+                                            <td>{val.precio}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        );
+                    })}
+            </center>
+        </div>)
+        : <center>
+            <div className="alert alert-danger" role="alert">
+             <h2>Usted no tiene acceso a este módulo, si se trata de un error por favor ponerse en contacto</h2>
+            </div>
+            </center>}
+                    
+
+                    
     </div>
   )
 }

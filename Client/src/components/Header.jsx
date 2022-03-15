@@ -61,8 +61,8 @@ const Header = () => {
                             <li className="nav-item">
                                 {rol == '' ? 
                                 <p></p> :
-                                <div class="container-sm" style={{"padding-top":"6px","textAlign":"center"}}>
-                                    <p class="p-1 bg-primary text-white rounded glyphicon-user"><span className="fa fa-user me-1"></span>Usuario: {rol}</p>
+                                <div className="container-sm" style={{"padding-top":"6px","textAlign":"center"}}>
+                                    <p className="p-1 bg-primary text-white rounded glyphicon-user"><span className="fa fa-user me-1"></span>Usuario: {rol}</p>
                                 </div>
                                 }
                             </li>

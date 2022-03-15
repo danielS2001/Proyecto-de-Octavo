@@ -124,6 +124,43 @@ app.post('/appointment', (req, res) => {
     });
 });
 
+app.post('/shipment', (req, res) => {
+
+    const FirstName = req.body.FirstName;
+    const LastName = req.body.LastName;
+    const mail = req.body.mail;
+    const address = req.body.address;
+    const state = req.body.state;
+    const city = req.body.city;
+    const ZipCode = req.body.ZipCode;
+    const product = req.body.product;
+    const price = req.body.price;
+
+    db.query("Insert into envios (nombre, apellido, correo, direccion, estado, ciudad, CP, producto, precio) values (?,?,?,?,?,?,?,?,?)",
+    [FirstName, LastName, mail, address, state, city, ZipCode, product, price],
+    (err, result) => {
+        if(err){
+            res.send({ err: err });
+        }
+        
+        if (result) {
+            res.send(result);
+        } else {
+            res.send({ message: "Hubo un error al crear el envio" })
+        }
+        
+    });
+});
+
+app.get('/selectShipment', (req, res) => {
+    db.query("Select * from envios", (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+            res.send(result);
+    });
+});
+
 app.post('/logout', (req, res) => {
     req.session.destroy()
 });
