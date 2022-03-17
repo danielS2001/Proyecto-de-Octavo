@@ -11,7 +11,8 @@ const About = () => {
                         <p className="lead mb-4">
                             Somos una microempresa que lleva años en el mercado/industria de la 
                             reparación celular, esta ha tenido con el tiempo varios establecimientos
-                            para poderse expandir y asi llegar a mas personas.
+                            para poderse expandir y así llegar a mas personas.
+                            Conócenos en Enrique Pérez Arce 5301, Benito Juárez, 82180 Mazatlán, Sin.
                         </p>
                         <NavLink to="/contact" className="btn btn-outline-primary px-3">Poner cita</NavLink>
                         <br />

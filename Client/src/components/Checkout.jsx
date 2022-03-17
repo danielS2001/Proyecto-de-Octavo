@@ -171,7 +171,7 @@ const Checkout = () => {
 
                                 <div className="col-md-3">
                                     <label htmlFor="zip" className="form-label">Código Postal</label>
-                                    <input type="text" onChange={(e)=> {setZipCodeReg(e.target.value);}} className="form-control" id="zip" placeholder="" required="" />
+                                    <input type="text" onChange={(e)=> {setZipCodeReg(e.target.value);}} className="form-control" id="zip" placeholder="82000" required="" />
                                     <div className="invalid-feedback">
                                         Ingrese su codigo postal.
                                     </div>
@@ -181,19 +181,21 @@ const Checkout = () => {
                             <hr className="my-4" />
 
                             <h4 className="mb-3">Metodo de pago</h4> 
-
-                            {checkout ? (
+                            <center>
+                              {checkout ? (
                                 <PayPal total={total}/>
                             ) : (
-                            <button className="btn btn-outline-primary col-3" onClick={() => {
+                            <button className="w-100 btn btn-outline-primary col-3" onClick={() => {
                                 setCheckout(true);
                             }}>Pago en Paypal</button> 
-                            )}
+                            )}  
+                            </center>
+                            
 
                             <hr className="my-4" />
 
                             <h5>{ purchaseStatus }</h5>
-                            <button className="w-100 btn btn-primary btn-lg" onClick={ Buy } type="submit">Continuar con la compra</button>                        </form>
+                            <button className="w-100 btn btn-primary btn-lg" onClick={ Buy } type="submit">Finalizar compra</button></form>
                     </div>
                 </div>
             </div>

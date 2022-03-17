@@ -43,10 +43,10 @@ const Contact = () => {
             <div class="alert alert-success" role="alert">
                 Cita agendada con exito!
             </div>);
+            setTimeout (function() {
+                window.location.reload();
+            },5000)
         }));
-        setTimeout (function() {
-            window.location.reload();
-        },5000)
     }
 
     useEffect(() => {
@@ -71,7 +71,7 @@ const Contact = () => {
                         <img src="/assets/images/citas.png" alt="Contact Us" height="300px" width="300px" />
                     </div>
                     <div className="col-md-6">
-                        <form onSubmit={onSubmit}>
+                        <form action="" id="" method="POST">
                             <div class="mb-3">
                                 <label for="" class="form-label">Nombre completo.</label>
                                 <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" placeholder={Name}/>
@@ -94,15 +94,17 @@ const Contact = () => {
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Fecha.</label>
-                                <input type="date" required onChange={(e)=> {setDateReg(e.target.value);}} class="form-control" id="exampleFormControlInput3" placeholder="Ej. 2022-03-15/"/>
+                                <input type="date" required onChange={(e)=> {setDateReg(e.target.value);}} class="form-control" id="exampleFormControlInput3"/>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Hora.</label>
-                                <input type="time" min="10:00" max="18:00" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" placeholder="Ej. 1:30 p.m."/>
+                                <input type="time" min="10:00" max="18:00" required onChange={(e)=> {setTimeReg(e.target.value);}} class="form-control" id="exampleFormControlInput2" />
                             </div>
-                                <h5><br/>{ appointmentStatus }</h5>
-                                <button onClick={ appointment } type="submit" class="btn btn-outline-primary col-3">Agendar cita</button>
-                                <button type="reset"  class="btn btn-outline-primary col-3 offset-md-1" defaultValue="Limpiar">Limpiar datos</button><br /><br />
+                                <h5>{ appointmentStatus }</h5><br/>
+                                <center>
+                                    <button onClick={ appointment } type="submit" class="btn btn-outline-primary col-3">Agendar cita</button>
+                                </center>
+                                {/* <button type="reset"  class="btn btn-outline-primary col-3 offset-md-1" defaultValue="Limpiar">Limpiar datos</button><br /><br /> */}
                         </form>
                     </div>
                     </div>

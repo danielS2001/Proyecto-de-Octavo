@@ -53,10 +53,8 @@ const Registration = () => {
                         <input type="password" required onChange={(e)=> {setPasswordReg(e.target.value);}} className="form-control" id="exampleInputPassword1" />
                     </div> 
                 </div>
-                <br />
                 <h5>{ signupStatus }</h5>
                 <button onClick={register} type="submit" className="btn btn-outline-primary mt-5">Registrar</button>
-                
             </center>
                 
         </div>

@@ -62,14 +62,12 @@ const Session = () => {
                         <input type="password" required onChange={(e)=> {setPassword(e.target.value);}} className="form-control" id="exampleInputPassword2"/>
                     </div>
                 </div>
-            
-                <br />
                 <h5>{loginStatus}</h5>
-            <button type="submit" onClick={(login)}  className="btn btn-outline-primary mt-5">Iniciar sesión</button> 
-            {
-                rol !== "" && <Redirect to={'/Home'}/>
-            }
-            </center>
+                <button type="submit" onClick={(login)}  className="btn btn-outline-primary mt-5">Iniciar sesión</button> 
+                {
+                    rol !== "" && <Redirect to={'/Home'}/>
+                }
+                </center>
         </div>       
         </>
     )
