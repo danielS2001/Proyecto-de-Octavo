@@ -10,6 +10,7 @@ import {
 
 const Home = () => {
     return (
+      <div className='animate__animated animate__fadeIn'>
         <MDBCarousel showIndicators showControls fade>
         <MDBCarouselInner>
         <MDBCarouselItem className='active'>
@@ -37,6 +38,7 @@ const Home = () => {
         </MDBCarouselItem>
       </MDBCarouselInner>
     </MDBCarousel>
+      </div>
     )
 }
 

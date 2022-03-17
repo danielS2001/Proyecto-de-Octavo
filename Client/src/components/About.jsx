@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import 'animate.css';
 
 const About = () => {
     return (
@@ -17,7 +18,7 @@ const About = () => {
                         <NavLink to="/contact" className="btn btn-outline-primary px-3">Poner cita</NavLink>
                         <br />
                     </div>
-                    <div className="col-md-6 d-flex justify-content-center">
+                    <div className="col-md-6 d-flex justify-content-center animate__animated animate__fadeInRight">
                         <img src="/assets/images/local.jfif" alt="About Us" class="img-fluid rounded mx-auto d-block " height="400px" width="450px" />
                     </div>
                 </div>

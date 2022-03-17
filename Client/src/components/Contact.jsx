@@ -67,7 +67,7 @@ const Contact = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md 5 d-flex justify-content-center">
+                    <div className="col-md 5 d-flex justify-content-center animate__animated animate__fadeInLeft">
                         <img src="/assets/images/citas.png" alt="Contact Us" height="300px" width="300px" />
                     </div>
                     <div className="col-md-6">
