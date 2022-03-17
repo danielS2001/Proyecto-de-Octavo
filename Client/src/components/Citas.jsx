@@ -77,8 +77,8 @@ export default function Citas() {
                                             <td>{val.correo}</td>
                                             <td>{val.dispositivo}</td>
                                             <td>{val.descripcion}</td>
-                                            <td>{val.fecha}</td>
                                             <td>{val.hora}</td>
+                                            <td>{val.fecha}</td>
                                         </tr>
                                 </tbody>
                             </table>

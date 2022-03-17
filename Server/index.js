@@ -108,7 +108,7 @@ app.post('/appointment', (req, res) => {
     const time = req.body.time;
     const date = req.body.date;
 
-    db.query("Insert into citas (nombreCompleto, numeroTelefono, correo, dispositivo, descripcion, fecha, hora) values (?,?,?,?,?,?,?)",
+    db.query("Insert into citas (nombreCompleto, numeroTelefono, correo, dispositivo, descripcion, hora, fecha) values (?,?,?,?,?,?,?)",
     [name, phone, email, device, description, time, date],
     (err, result) => {
         if(err){

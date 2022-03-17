@@ -15,7 +15,7 @@ const Contact = () => {
     const [appointmentStatus, setAppointmentStatus] = useState("");
     const [Name, setName] = useState("");
 
-    const TableValidation = (nameReg == "" || phoneReg == "" || emailReg == "" || deviceReg == "" || descriptionReg == "" || timeReg == "" || dateReg == ""); 
+    const TableValidation = (nameReg == "" || phoneReg == "" || emailReg == "" || deviceReg == "" || descriptionReg == "" || timeReg == "" || dateReg == "" || timeReg == "09:30" || timeReg == "09:00" || timeReg == "08:30" || timeReg == "08:00" || timeReg == "07:30" || timeReg == "07:00" || timeReg == "06:00" || timeReg == "05:30" || timeReg == "05:00" || timeReg == "04:30" || timeReg == "04:00" || timeReg == "03:30" || timeReg =="03:00" || timeReg == "02:30" || timeReg =="02:00" || timeReg == "01:30" || timeReg == "01:00" || timeReg == "00:30" || timeReg == "00:00"); 
 
     Axios.defaults.withCredentials = true;
 
@@ -45,7 +45,7 @@ const Contact = () => {
             </div>);
             setTimeout (function() {
                 window.location.reload();
-            },5000)
+            },2000);
         }));
     }
 
@@ -71,7 +71,8 @@ const Contact = () => {
                         <img src="/assets/images/citas.png" alt="Contact Us" height="300px" width="300px" />
                     </div>
                     <div className="col-md-6">
-                        <form action="" id="" method="POST">
+                        <form onSubmit={onSubmit}>
+                        {/* <form action="" id="" method="POST"> */}
                             <div class="mb-3">
                                 <label for="" class="form-label">Nombre completo.</label>
                                 <input type="text" required onChange={(e)=> {setNameReg(e.target.value);}} class="form-control" id="exampleForm" placeholder={Name}/>
