@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function PayPal({total}) {
     const paypal = useRef();
     var parsed = total.toString();
     var price = parseFloat(parsed).toFixed(2);
+
+    // const [paidReg, setPaidReg] = useState("");
 
     useEffect(() => {
         window.paypal.Buttons({
@@ -24,6 +26,7 @@ export default function PayPal({total}) {
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
                 console.log(order);
+                // setTotalReg.paid = true;
             },
             onError: (err) => {
                 console.log(err);

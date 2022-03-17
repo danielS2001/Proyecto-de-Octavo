@@ -83,7 +83,6 @@ export default function Citas() {
                                 </tbody>
                             </table>
                             </div>
-                            
                         );
                     })}
 

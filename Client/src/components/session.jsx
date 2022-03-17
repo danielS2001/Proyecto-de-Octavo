@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
-import { useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 
 const Session = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [rol, setRol] = useState("");
 
     const [loginStatus, setLoginStatus] = useState("");
 
@@ -19,19 +20,22 @@ const Session = () => {
                 setLoginStatus(response.data.message);
             } else {
                 console.log(response);
-                setLoginStatus(response.data[0].user);
+                // setLoginStatus(response.data[0].user);
+                // return (<><Redirect to={'/Home'}/></>)
             }
         });
 
         setTimeout(function() {
             window.location.reload();
-        }, 1000)
+        }, 300)
+
+        // this.props.history.push('/Home');
     };
 
     useEffect(() => {
         Axios.get("http://localhost:3001/login").then((response) => {
             if (response.data.loggedIn == true) {
-                setLoginStatus(response.data.user[0].user);
+                setRol(response.data.user[0].user);
             }
         });
     }, []);
@@ -60,9 +64,11 @@ const Session = () => {
                 </div>
             
                 <br />
-                <h5>Bienvenido(a) {loginStatus}</h5>
+                <h5>{loginStatus}</h5>
             <button type="submit" onClick={(login)}  className="btn btn-outline-primary mt-5">Iniciar sesión</button> 
-            {/* <button onClick={logout} className="btn btn-outline-primary mt-5">Cerrar sesión</button> */}
+            {
+                rol !== "" && <Redirect to={'/Home'}/>
+            }
             </center>
         </div>       
         </>

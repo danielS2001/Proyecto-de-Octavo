@@ -6,6 +6,11 @@ import Axios from 'axios';
 const Checkout = () => {
     const state = useSelector((state) => state.addItem);
 
+    // const [totalReg, setTotalReg] = useState({
+    //     total: 0.0,
+    //     paid: false
+    // });
+
     const [nameReg, setNameReg] = useState("");
     const [lastNameReg, setLastNameReg] = useState("");
     const [emailReg, setEmailReg] = useState("");
@@ -18,7 +23,7 @@ const Checkout = () => {
 
     const [purchaseStatus, setPurchaseStatus] = useState("");
 
-    const TableValidation = (nameReg == "" || lastNameReg == "" || emailReg == "" || addressReg == "" || zipCodeReg == ""); 
+    const TableValidation = (nameReg == "" || lastNameReg == "" || emailReg == "" || addressReg == "" || stateReg == "" ||  cityReg == "" || zipCodeReg == ""); 
 
     Axios.defaults.withCredentials = true;
 
@@ -53,7 +58,7 @@ const Checkout = () => {
 
     var total = 0.00;
     const itemList = (item) => {
-        total = total + item.price;
+        total =  total + item.price;
         return (
             <li className="list-group-item d-flex justify-content-between lh-sm">
                 <div>

@@ -23,14 +23,14 @@ const DATA = [
     {
         id : 3,
         title : "Iphone 12",
-        price : 12000,
+        price : 1150,
         desc : "Producto de alta calidad a precio rebajado",
         img : "/assets/images/products/iphone12.png"
     },
     {
         id : 4,
         title : "IPhone 12 Pro",
-        price : 1150,
+        price : 1200,
         desc : "Producto de alta calidad a precio rebajado",
         img : "/assets/images/products/iphone12pro.png"
     },

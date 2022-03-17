@@ -39,9 +39,9 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <NavLink className="nav-link" to="/">Inicio</NavLink>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/products">Productos</NavLink>
                             </li>
@@ -67,11 +67,14 @@ const Header = () => {
                                 }
                             </li>
                         </ul>
-                    <NavLink className="navbar-brand mx-auto fw-bolder col-3"  to="/">
-                        <div class="container" style={{"padding-right":"50px","textAlign":"center"}}>
+                    <NavLink className="navbar-brand mx-auto fw-bolder"  to="/">
+                        <div class="container" style={{"padding-left":"20px","textAlign":"center"}}>
                             Hospital del celular
                         </div></NavLink>
+                    {rol == '' &&
                     <Login/>
+                    }
+
                     <Signup/>
                     <CartBtn/>
                     
