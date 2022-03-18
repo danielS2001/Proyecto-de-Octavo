@@ -4,7 +4,7 @@ export default function PayPal({total}) {
     const paypal = useRef();
     var parsed = total.toString();
     var price = parseFloat(parsed).toFixed(2);
-
+    const [paymentStatus, setPaymentStatus] = useState("");
     // const [paidReg, setPaidReg] = useState("");
 
     useEffect(() => {
@@ -26,7 +26,9 @@ export default function PayPal({total}) {
             onApprove: async (data, actions) => {
                 const order = await actions.order.capture();
                 console.log(order);
-                // setTotalReg.paid = true;
+                setPaymentStatus(<div class="alert alert-success" role="alert">
+                ¡El pago en PayPal se ha realizado con éxito!
+            </div>);
             },
             onError: (err) => {
                 console.log(err);
@@ -39,6 +41,7 @@ export default function PayPal({total}) {
   return (
     <div>
         <div ref={paypal}></div>
+        <h5>{ paymentStatus }</h5>
     </div>
   )
 }
