@@ -28,6 +28,10 @@ const Checkout = () => {
     Axios.defaults.withCredentials = true;
 
     const Buy = (item) => {
+
+        {TableValidation === true && setPurchaseStatus(
+            <div class="alert alert-danger" role="alert">
+            Por favor, ingrese los datos faltantes</div>)}
         
         state.map((item) => {
         {TableValidation === false && (
@@ -47,13 +51,14 @@ const Checkout = () => {
                 <div class="alert alert-success" role="alert">
                     Compra realizada con éxito.
                 </div>);
+                setTimeout (function() {
+                    window.location.reload();
+                },6000)
             })
         )}
         });
 
-        setTimeout (function() {
-            window.location.reload();
-        },10000)
+        
     }
 
     var total = 0.00;
@@ -110,11 +115,11 @@ const Checkout = () => {
                     </div>
                     <div className="col-md-7 col-lg-8">
                         <h4 className="mb-3">Datos de envío</h4>
-                        <form className="needs-validation" novalidate="" onSubmit={onSubmit}>
+                        <form className="needs-validation" onSubmit={onSubmit}>
                             <div className="row g-3">
                                 <div className="col-sm-6">
                                     <label htmlFor="firstName" className="form-label">Nombre(s)</label>
-                                    <input type="text" onChange={(e)=> {setNameReg(e.target.value);}} className="form-control" id="name" placeholder="" required="" />
+                                    <input type="text" onChange={(e)=> {setNameReg(e.target.value);}} className="form-control" id="name" placeholder="" required />
                                     <div className="invalid-feedback">
                                         Ingrese un Nombre valido.
                                     </div>
@@ -122,7 +127,7 @@ const Checkout = () => {
 
                                 <div className="col-sm-6">
                                     <label htmlFor="lastName" className="form-label">Apellidos</label>
-                                    <input type="text" onChange={(e)=> {setLastNameReg(e.target.value);}} className="form-control" id="lastname" placeholder="" required="" />
+                                    <input type="text" onChange={(e)=> {setLastNameReg(e.target.value);}} className="form-control" id="lastname" placeholder="" required />
                                     <div className="invalid-feedback">
                                         Ingrese Apellidos validos.
                                     </div>
@@ -130,7 +135,7 @@ const Checkout = () => {
 
                                 <div className="col-12">
                                     <label htmlFor="email" className="form-label">Correo electronico</label>
-                                    <input type="email" onChange={(e)=> {setEmailReg(e.target.value);}} className="form-control" id="email" placeholder="tu@ejemplo.com" />
+                                    <input type="email" onChange={(e)=> {setEmailReg(e.target.value);}} className="form-control" id="email" placeholder="Ej. tu@ejemplo.com" required/>
                                     <div className="invalid-feedback">
                                         Ingrese un correo electronico valido para actualizaciones de su envio.
                                     </div>
@@ -138,7 +143,7 @@ const Checkout = () => {
 
                                 <div className="col-12">
                                     <label htmlFor="address" className="form-label">Dirección</label>
-                                    <input type="text" onChange={(e)=> {setAddressReg(e.target.value);}} className="form-control" id="address" placeholder="Villa Galaxia Calle Tauro #1246" required="" />
+                                    <input type="text" onChange={(e)=> {setAddressReg(e.target.value);}} className="form-control" id="address" placeholder="Ej. Villa Florida Calle Tauro #1246" required />
                                     <div className="invalid-feedback">
                                         Ingrese una dirección de envio.
                                     </div>
@@ -146,7 +151,7 @@ const Checkout = () => {
 
                                 <div className="col-md-5">
                                     <label htmlFor="state" className="form-label">Estado</label>
-                                    <input type="text" onChange={(e)=> {setStateReg(e.target.value);}} className="form-control" id="state" placeholder="Sinaloa" required="" />
+                                    <input type="text" onChange={(e)=> {setStateReg(e.target.value);}} className="form-control" id="state" placeholder="Ej. Sinaloa" required />
                                     {/* <select className="form-select" id="state" required="">
                                         <option value="">Seleccione...</option>
                                         <option value="Sinaloa">Sinaloa</option>
@@ -158,7 +163,7 @@ const Checkout = () => {
 
                                 <div className="col-md-4">
                                     <label htmlFor="city" className="form-label">Ciudad</label>
-                                    <input type="text" onChange={(e)=> {setCityReg(e.target.value);}} className="form-control" id="city" placeholder="Mazatlan" required="" />
+                                    <input type="text" onChange={(e)=> {setCityReg(e.target.value);}} className="form-control" id="city" placeholder="Ej. Mazatlan" required />
 
                                     {/* <select className="form-select" id="city" required="">
                                         <option value="">Seleccione...</option>
@@ -171,7 +176,7 @@ const Checkout = () => {
 
                                 <div className="col-md-3">
                                     <label htmlFor="zip" className="form-label">Código Postal</label>
-                                    <input type="text" onChange={(e)=> {setZipCodeReg(e.target.value);}} className="form-control" id="zip" placeholder="82000" required="" />
+                                    <input type="text" onChange={(e)=> {setZipCodeReg(e.target.value);}} className="form-control" id="zip" placeholder="Ej. 82000" required />
                                     <div className="invalid-feedback">
                                         Ingrese su codigo postal.
                                     </div>

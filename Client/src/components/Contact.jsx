@@ -15,7 +15,7 @@ const Contact = () => {
     const [appointmentStatus, setAppointmentStatus] = useState("");
     const [Name, setName] = useState("");
 
-    const TableValidation = (nameReg == "" || phoneReg == "" || emailReg == "" || deviceReg == "" || descriptionReg == "" || timeReg == "" || dateReg == "" || timeReg == "09:30" || timeReg == "09:00" || timeReg == "08:30" || timeReg == "08:00" || timeReg == "07:30" || timeReg == "07:00" || timeReg == "06:00" || timeReg == "05:30" || timeReg == "05:00" || timeReg == "04:30" || timeReg == "04:00" || timeReg == "03:30" || timeReg =="03:00" || timeReg == "02:30" || timeReg =="02:00" || timeReg == "01:30" || timeReg == "01:00" || timeReg == "00:30" || timeReg == "00:00"); 
+    const TableValidation = (nameReg == "" || phoneReg == "" || emailReg == "" || deviceReg == "" || descriptionReg == "" || timeReg == "" || dateReg == "" || timeReg == "09:30" || timeReg == "09:00" || timeReg == "08:30" || timeReg == "08:00" || timeReg == "07:30" || timeReg == "07:00" || timeReg == "06:00" || timeReg == "05:30" || timeReg == "05:00" || timeReg == "04:30" || timeReg == "04:00" || timeReg == "03:30" || timeReg =="03:00" || timeReg == "02:30" || timeReg =="02:00" || timeReg == "01:30" || timeReg == "01:00" || timeReg == "00:30" || timeReg == "00:00" || timeReg =="18:30" || timeReg == "19:00" || timeReg =="19:30" || timeReg =="20:00" || timeReg == "20:30" || timeReg=="21:00" || timeReg =="21:30" || timeReg =="22:00" || timeReg=="22:30" || timeReg=="23:00" || timeReg=="23:30"); 
 
     Axios.defaults.withCredentials = true;
 
