@@ -37,6 +37,10 @@ const Header = () => {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
+                    <NavLink className="nav-link text-primary"   to="/">
+                        <div class="container" style={{"padding-left":"20px","text":"center", "font-family":"Arial, Helvetica, sans-serif", "color":"black","font-size":"25px"}}>
+                            Hospital del celular
+                        </div></NavLink>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             {/* <li className="nav-item">
@@ -67,15 +71,15 @@ const Header = () => {
                                 }
                             </li>
                         </ul>
-                    <NavLink className="navbar-brand mx-auto fw-bolder"  to="/">
-                        <div class="container" style={{"padding-left":"20px","textAlign":"center"}}>
-                            Hospital del celular
-                        </div></NavLink>
+                    
                     {rol == '' &&
+                    <>
                     <Login/>
+                    <Signup/>
+                    </>
                     }
 
-                    <Signup/>
+                    
                     <CartBtn/>
                     
                     {!rol == '' &&
