@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Proyecto-de-Octavo/static/css/main.167516b4.chunk.css",
+    "main.js": "/Proyecto-de-Octavo/static/js/main.200788e0.chunk.js",
+    "main.js.map": "/Proyecto-de-Octavo/static/js/main.200788e0.chunk.js.map",
+    "runtime-main.js": "/Proyecto-de-Octavo/static/js/runtime-main.e1716a64.js",
+    "runtime-main.js.map": "/Proyecto-de-Octavo/static/js/runtime-main.e1716a64.js.map",
+    "static/css/2.681ba5c7.chunk.css": "/Proyecto-de-Octavo/static/css/2.681ba5c7.chunk.css",
+    "static/js/2.31042236.chunk.js": "/Proyecto-de-Octavo/static/js/2.31042236.chunk.js",
+    "static/js/2.31042236.chunk.js.map": "/Proyecto-de-Octavo/static/js/2.31042236.chunk.js.map",
+    "static/js/3.949d2f2a.chunk.js": "/Proyecto-de-Octavo/static/js/3.949d2f2a.chunk.js",
+    "static/js/3.949d2f2a.chunk.js.map": "/Proyecto-de-Octavo/static/js/3.949d2f2a.chunk.js.map",
+    "index.html": "/Proyecto-de-Octavo/index.html",
+    "static/css/2.681ba5c7.chunk.css.map": "/Proyecto-de-Octavo/static/css/2.681ba5c7.chunk.css.map",
+    "static/css/main.167516b4.chunk.css.map": "/Proyecto-de-Octavo/static/css/main.167516b4.chunk.css.map",
+    "static/js/2.31042236.chunk.js.LICENSE.txt": "/Proyecto-de-Octavo/static/js/2.31042236.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/Proyecto-de-Octavo/static/media/fontawesome-webfont.f691f37e.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e1716a64.js",
+    "static/css/2.681ba5c7.chunk.css",
+    "static/js/2.31042236.chunk.js",
+    "static/css/main.167516b4.chunk.css",
+    "static/js/main.200788e0.chunk.js"
+  ]
+}
